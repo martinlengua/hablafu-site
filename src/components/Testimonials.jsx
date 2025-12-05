@@ -3,7 +3,7 @@ import './Testimonials.css';
 
 const Testimonials = () => {
   return (
-    <section className="testimonials">
+    <section className="testimonials zoom-in">
       <h2>Lo que dicen nuestros clientes</h2>
       <div className="testimonial">
         <p>"HablaFu nos proporcionó el espacio perfecto para nuestro podcast corporativo. ¡Altamente recomendado!"</p>

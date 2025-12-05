@@ -1,0 +1,217 @@
+/* Pricing.css */
+.pricing {
+  background-color: #111827;
+  color: white;
+  padding: 6rem 2rem; /* Aumentado padding vertical para más aire */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pricing .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem; /* Aumentado margen superior */
+  color: #fff;
+}
+
+.pricing p {
+  font-size: 1.3rem;
+  color: #9CA3AF;
+  margin-bottom: 5rem; /* Aumentado separación */
+  line-height: 1.4;
+}
+
+.pricing .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.pricing p {
+  font-size: 1.3rem;
+  color: #9CA3AF;
+  margin-bottom: 4rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  justify-content: center;
+}
+
+.pricing-card {
+  width: 450px; /* Aumentado a 450px para más espacio y mejor legibilidad */
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 40px 30px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card {
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 4rem 3rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card {
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card.popular {
+  border-color: #FFD200;
+  box-shadow: 0 0 30px rgba(255, 210, 0, 0.5); /* Glow más visible */
+  height: auto; /* Ligera altura extra para protagonismo */
+  padding-top: 50px; /* Más padding top para destacar */
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FFD200;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.pricing-card h3 {
+  font-size: 2.2rem; /* Aumentado ligeramente para mejor visibilidad */
+  margin-bottom: 0.5rem;
+}
+
+.plan-subtitle {
+  font-size: 1.2rem; /* Aumentado para legibilidad */
+  color: #9CA3AF;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.price {
+  font-size: 3rem; /* Aumentado a 3rem para destacar */
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: #FFD200;
+}
+
+.features-section h4 {
+  font-size: 1.1rem; /* Ajustado a 1.1rem bold */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #F9FAFB;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.pricing-card li {
+  margin-bottom: 0.5rem;
+  color: #D1D5DB;
+  font-size: 1rem; /* Aumentado a 1rem */
+}
+
+.not-includes li {
+  color: #6B7280;
+  text-decoration: line-through;
+}
+
+.plan-note {
+  font-size: 0.9rem;
+  color: #FFD200;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.btn-pricing {
+  background: linear-gradient(135deg, #FFD200, #EF2C8D);
+  color: #000;
+  border: none;
+  padding: 1.2rem 2.5rem; /* Padding aumentado */
+  border-radius: 8px;
+  font-size: 1.1rem; /* Aumentado a 1.1rem */
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.btn-pricing:hover {
+  transform: scale(1.05);
+}
+
+.pricing-card.popular .btn-pricing {
+  padding: 1.5rem 3rem; /* Botón más grande en popular */
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .pricing-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing {
+    padding: 4rem 1rem;
+  }
+  .pricing h2 {
+    font-size: 2.5rem;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .pricing-card {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}
+  .pricing h2 {
+    font-size: 2.5rem;
+  }
+}

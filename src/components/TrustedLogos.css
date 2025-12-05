@@ -1,34 +1,30 @@
 /* TrustedLogos.css */
 .trusted-logos {
-  background-color: #ffffff;
-  padding: 70px 2rem;
+  background-color: #111827;
+  padding: 80px 2rem;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
 }
 
 .container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .trusted-logos h2 {
-  color: #000;
+  color: #fff;
   font-weight: 600;
-  font-size: clamp(24px, 5vw, 32px);
-  margin-bottom: 3rem;
+  font-size: clamp(28px, 5vw, 36px);
+  margin-bottom: 4rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .logos-container {
-  overflow: hidden;
   width: 100%;
-}
-
-.logos-row {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-  animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
@@ -40,25 +36,60 @@
   }
 }
 
-.logo {
-  max-height: 80px;
-  width: auto;
-  object-fit: contain;
+.brand-card {
+  width: 400px;
+  height: 260px;
+  background: #1A1F2B;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   transition: transform 0.3s;
 }
 
-.logo:hover {
-  transform: scale(1.1);
+.brand-card:hover {
+  transform: scale(1.05);
+}
+
+.brand-logo {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+  opacity: 1;
+}
+
+.fade-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fade-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .logos-row {
-    gap: 30px;
+    gap: 24px;
     animation-duration: 15s;
   }
-  .logo {
-    max-height: 60px;
+  .brand-card {
+    width: 1440px;
+    height: 936px;
   }
 }
 
@@ -70,7 +101,8 @@
     gap: 20px;
     animation-duration: 10s;
   }
-  .logo {
-    max-height: 50px;
+  .brand-card {
+    width: 1280px;
+    height: 832px;
   }
 }

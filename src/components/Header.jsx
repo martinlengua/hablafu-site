@@ -12,13 +12,13 @@ const Header = () => {
         <div className="nav-center">
           <ul className="nav-menu">
             <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#precios">Precios</a></li>
+            <li><a href="#nuestros-clientes">Nuestros clientes</a></li>
+            <li><a href="#precios">Planes</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </div>
         <div className="nav-right">
-          <a href="#reservar" className="btn">Reservar Ahora</a>
+          <a href="https://wa.me/+51991291401?text=hola%20quiero%20m%C3%A1s%20info%20del%20estudio" target="_blank" className="btn">Reservar Ahora</a>
         </div>
       </nav>
     </header>
