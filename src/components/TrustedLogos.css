@@ -1,0 +1,76 @@
+/* TrustedLogos.css */
+.trusted-logos {
+  background-color: #ffffff;
+  padding: 70px 2rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trusted-logos h2 {
+  color: #000;
+  font-weight: 600;
+  font-size: clamp(24px, 5vw, 32px);
+  margin-bottom: 3rem;
+}
+
+.logos-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.logos-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logos-row {
+    gap: 30px;
+    animation-duration: 15s;
+  }
+  .logo {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-logos {
+    padding: 50px 1rem;
+  }
+  .logos-row {
+    gap: 20px;
+    animation-duration: 10s;
+  }
+  .logo {
+    max-height: 50px;
+  }
+}
