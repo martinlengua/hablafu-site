@@ -1,18 +1,25 @@
-# Imagen base de Node.js
-FROM node:20-alpine
-# Directorio de trabajo
+# ---------- STAGE 1: Build ----------
+FROM node:20-alpine AS build
 WORKDIR /app
-# Copiar package.json y package-lock.json primero
+
 COPY package*.json ./
-# Instalar dependencias
 RUN npm ci --frozen-lockfile
-# Copiar el resto de archivos
+
 COPY . .
-# Construir la app para producción
 RUN npm run build
-# Usar el puerto asignado por Azure
-ENV HOST=0.0.0.0
-# Exponer el puerto dinámico
-EXPOSE $PORT
-# Comando para servir la app construida con puerto dinámico
-CMD ["sh", "-c", "npm run preview -- --host 0.0.0.0 --port $PORT"]
+
+
+# ---------- STAGE 2: Production (Nginx) ----------
+FROM nginx:stable-alpine
+
+# Copiar el build de Vite al root de nginx
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Opcional: copia tu meta.json si existe
+# COPY meta.json /usr/share/nginx/html
+
+# Exponer puerto 80 para Azure Web App (OBLIGATORIO)
+EXPOSE 80
+
+# Iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
