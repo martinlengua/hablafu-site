@@ -1,19 +1,18 @@
-# Imagen base de Node.js (usa 20-alpine para ligereza)
+# Imagen base de Node.js
 FROM node:20-alpine
 # Directorio de trabajo
 WORKDIR /app
-# Copiar archivos de dependencias primero (para cache de Docker)
+# Copiar package.json y package-lock.json primero
 COPY package*.json ./
-# Instalar dependencias con --frozen-lockfile para consistencia
+# Instalar dependencias
 RUN npm ci --frozen-lockfile
-# Copiar el resto de los archivos del proyecto
+# Copiar el resto de archivos
 COPY . .
 # Construir la app para producción
 RUN npm run build
-# Variables de entorno para Vite preview
+# Usar el puerto asignado por Azure
 ENV HOST=0.0.0.0
-ENV PORT=4173
-# Exponer el puerto
-EXPOSE 4173
-# Comando para servir la app construida
-CMD ["npm", "run", "preview"]
+# Exponer el puerto dinámico
+EXPOSE $PORT
+# Comando para servir la app construida con puerto dinámico
+CMD ["sh", "-c", "npm run preview -- --host 0.0.0.0 --port $PORT"]
