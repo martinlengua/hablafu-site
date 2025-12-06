@@ -38,7 +38,7 @@ jobs:
         run: |
           az webapp config container set \
             --name hablafu-studio \  # Cambia al nombre de tu Web App
-            --resource-group rg-strategia-app
+            --resource-group rg-strategia-app \
             --docker-custom-image-name $REGISTRY/$IMAGE_NAME:$TAG \
             --docker-registry-server-url https://acrstrategiaapp.azurecr.io \  # Cambia a tu ACR URL
             --docker-registry-server-user acrstrategiaapp \  # Cambia al username de ACR
