@@ -3,7 +3,7 @@ name: Build and push HablaFu Docker image to ACR
 on:
   push:
     branches:
-      - master  # Cambia a 'main' si usas main
+      - master 
   workflow_dispatch:
 jobs:
   build:
@@ -18,13 +18,13 @@ jobs:
           enable-AzPSSession: true
       - name: Log in to Azure Container Registry
         run: |
-          az acr login --name acrstrategiaapp.azurecr.io  # Cambia al nombre de tu ACR
+          az acr login --name acrstrategiaapp.azurecr.io
       - name: Define Tag
         id: vars
         run: echo "TAG=${{ github.run_number }}-${{ github.sha }}" >> $GITHUB_ENV
       - name: Build and push Docker image
         env:
-          REGISTRY: acrstrategiaapp.azurecr.io  # Cambia al nombre de tu ACR
+          REGISTRY: acrstrategiaapp.azurecr.io  
           IMAGE_NAME: hablafu-app
           TAG: ${{ env.TAG }}
         run: |
@@ -32,24 +32,24 @@ jobs:
           docker push $REGISTRY/$IMAGE_NAME:$TAG
       - name: Update HablaFu application
         env:
-          REGISTRY: acrstrategiaapp.azurecr.io  # Cambia al nombre de tu ACR
+          REGISTRY: acrstrategiaapp.azurecr.io 
           IMAGE_NAME: hablafu-app
           TAG: ${{ env.TAG }}      
         run: |
           az webapp config container set \
-            --name hablafu-studio \  # Cambia al nombre de tu Web App
+            --name hablafu-studio \  
             --resource-group rg-strategia-app \
             --docker-custom-image-name $REGISTRY/$IMAGE_NAME:$TAG \
-            --docker-registry-server-url https://acrstrategiaapp.azurecr.io \  # Cambia a tu ACR URL
-            --docker-registry-server-user acrstrategiaapp \  # Cambia al username de ACR
+            --docker-registry-server-url https://acrstrategiaapp.azurecr.io \  
+            --docker-registry-server-user acrstrategiaapp \ 
             --docker-registry-server-password ${{ secrets.ACR_KEY }}
       - name: Stop Azure Web App
         run: |
           az webapp stop \
-            --name hablafu-studio \  # Cambia al nombre de tu Web App
-            --resource-group rg-strategia-app  # Cambia al nombre de tu Resource Group
+            --name hablafu-studio \  
+            --resource-group rg-strategia-app  
       - name: Start Azure Web App
         run: |
           az webapp start \
-            --name hablafu-studio \  # Cambia al nombre de tu Web App
-            --resource-group rg-hablafu  # Cambia al nombre de tu Resource Group  
+            --name hablafu-studio \  
+            --resource-group rg-hablafu  
