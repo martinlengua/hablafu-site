@@ -24,7 +24,7 @@ const TrustedLogos = () => {
         <div className="logos-container">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={2}
+            spaceBetween={15}
             slidesPerView={6}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             speed={1500}
