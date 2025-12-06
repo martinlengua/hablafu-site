@@ -36,13 +36,8 @@ jobs:
           IMAGE_NAME: hablafu-app
           TAG: ${{ env.TAG }}      
         run: |
-          az webapp config container set \
-            --name hablafu-studio \  
-            --resource-group rg-strategia-app \
-            --docker-custom-image-name $REGISTRY/$IMAGE_NAME:$TAG \
-            --docker-registry-server-url "https://acrstrategiaapp.azurecr.io" \
-            --docker-registry-server-user acrstrategiaapp \ 
-            --docker-registry-server-password ${{ secrets.ACR_KEY }}
+          az webapp config container set --name hablafu-studio --resource-group rg-strategia-app --docker-custom-image-name $REGISTRY/$IMAGE_NAME:$TAG --docker-registry-server-url "https://acrstrategiaapp.azurecr.io" --docker-registry-server-user acrstrategiaapp --docker-registry-server-password ${{ secrets.ACR_KEY }}
+          
       - name: Stop Azure Web App
         run: |
           az webapp stop \
